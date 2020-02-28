@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import GamesContainer from './containers/GamesContainer'
 import GameSpecs from './components/GamesSpecs'
+import NavBar from './components/NavBar';
 
 class App extends Component {
   state ={
     gamesArray: [],
-    displayedGame: null
+    displayedGame: null,
+    searchTerm: ""
   }
 
   componentDidMount(){ 
@@ -20,12 +22,18 @@ class App extends Component {
     this.setState({displayedGame: game})
   }
 
-  render() { 
+  handleChange = (event) => {
+    this.setState({searchTerm: event.target.value.toLowerCase()})
+  }
+
+  render() {
+    let filteredGames = this.state.gamesArray.filter(game => game.name.toLowerCase().includes(this.state.searchTerm)) 
   return (
    <div>
+     <NavBar handleChange={this.handleChange} searchTerm={this.state.searchTerm}/>
      {this.state.displayedGame?
       <GameSpecs game={this.state.displayedGame} /> :
-      <GamesContainer gamesArray={this.state.gamesArray} displayGame={this.displayGame}/> 
+      <GamesContainer gamesArray={filteredGames} displayGame={this.displayGame}/> 
     }
    </div>
   
