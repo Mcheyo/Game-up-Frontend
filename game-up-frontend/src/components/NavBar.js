@@ -9,7 +9,13 @@ export default class NavBar extends Component {
                     <form className="form-inline my-2 my-lg-0">
                         <input onChange={this.props.handleChange} value={this.props.searchTerm} type="search" className="form-control mr-sm-2" placeholder="Search"></input>
                     </form>
-                    <div className="login">Login</div>    
+                    <div className="login">
+                        <button className="btn"
+                             onClick={(event) => this.props.handleSignUp(event) }    >
+                            Sign Up
+                        </button>
+                        
+                        </div>    
                 </nav>            
             </div>
         )
