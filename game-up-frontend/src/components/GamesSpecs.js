@@ -6,20 +6,19 @@ export default class GameSpecs extends Component {
         let {name, released, background_image, rating, metacritic, playtime, clip} = this.props.game
         return(
             <div>
-                <div className="NavBar"></div>
                 <div className="pageContents">
                 <div className="gameName">{name}</div>
-                    <div className="embed-responsive embed-responsive 4by3">
+                    <div className="embed-responsive 4by3">
                         <iframe width="320" height="240" src={`${clip}`} frameBorder="0">
                         </iframe> </div>
                     <div className="userReviews">{}</div>
                     <div className="gameImage">
-                        <img src={`${background_image}`}/>
+                        <img class="img-responsive fit-image" src={`${background_image}`}/>
                     </div>
-                    <div className="gameRatings">{rating}
-                    <div className="gameReleased">{released}</div>
-                    <div className="gamePlaytime">{playtime}</div>
-                    <div className="gameMetacrtic">{metacritic}</div>
+                    <div className="gameRatings">Rating: {rating}
+                    <div className="gameReleased">Released: {released}</div>
+                    <div className="gamePlaytime">Playtime: {playtime}</div>
+                    <div className="gameMetacrtic">Metacrtic Rating: {metacritic}</div>
                     </div>
                 </div>
             

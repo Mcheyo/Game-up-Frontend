@@ -31,10 +31,12 @@ class App extends Component {
   return (
    <div>
      <NavBar handleChange={this.handleChange} searchTerm={this.state.searchTerm}/>
-     {this.state.displayedGame?
-      <GameSpecs game={this.state.displayedGame} /> :
-      <GamesContainer gamesArray={filteredGames} displayGame={this.displayGame}/> 
-    }
+     <div>
+      {this.state.displayedGame?
+        <GameSpecs game={this.state.displayedGame} /> :
+        <GamesContainer gamesArray={filteredGames} displayGame={this.displayGame}/> 
+      }
+      </div>
    </div>
   
   );
