@@ -11,7 +11,7 @@ export default class User extends Component {
         let value = event.target.value
         this.setState({[id]: value })
     }
-    
+
 addUser = e => { 
 e.preventDefault()
         // I destructred the states to pass so that it looks cleaner
@@ -42,7 +42,7 @@ fetch('http://localhost:3000/users',{
                     onChange={(event) =>this.handleChange(event)}
                     />
                     <textarea
-                    type="test"
+                    type="text"
                     placeholder="Profile"
                     id="profile"
                     value={this.state.profile}
