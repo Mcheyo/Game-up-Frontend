@@ -10,15 +10,17 @@ export default class NavBar extends Component {
                             <a class="navbar-brand" href="#">LOGO</a>
                         </div>
 
-                            <form className="form-inline my-2 my-lg-0">
-                                <input onChange={this.props.handleChange} value={this.props.searchTerm} type="search" className="form-control mr-sm-2" placeholder="Search"></input>
-                            </form>
+                        <form className="form-inline my-2 my-lg-0">
+                            <input onChange={this.props.handleChange} value={this.props.searchTerm} type="search" className="form-control mr-sm-2" placeholder="Search"></input>
+                        </form>
 
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#"> Sign Up</a></li>
-                                
-                                <li><a href="#"> Login</a></li>
-                            </ul> 
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><button className="btn"
+                                onClick={(event) => this.props.handleSignUp(event) }    >
+                                Sign Up
+                            </button> </li>
+                            <li><a href="#"> Login</a></li>
+                        </ul> 
                          
                     </div>
                 </nav>            
