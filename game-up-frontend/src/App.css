@@ -9,15 +9,16 @@
 
 .card-img-top {
   min-height:250px;
-  max-height:200px;
+  /* max-height:200px; */
   object-fit: cover;
 }
 
+/* changes the image on the GameSpecs page */
 .fit-image{
   width: 100%;
   object-fit: cover;
-  /* height: 300px; only if you want fixed height */
 }
+/* height: 300px; only if you want fixed height */
 
 body {
   padding-top: 60px;

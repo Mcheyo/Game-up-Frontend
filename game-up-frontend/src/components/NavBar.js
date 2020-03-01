@@ -15,7 +15,7 @@ export default class NavBar extends Component {
                         </form>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li><button className="btn"
+                            <li><button className="btn btn-info"
                                 onClick={(event) => this.props.handleSignUp(event) }    >
                                 Sign Up
                             </button> </li>
