@@ -21,7 +21,7 @@ fetch('http://localhost:3000/users',{
     method: "POST", 
     headers: {"Content-Type": 
               "application/json",
-              Accept:"application/json"}, 
+              "Accept":"application/json"}, 
     body: JSON.stringify({ name, profile})
 })
 .then(res => res.json() )
@@ -33,29 +33,38 @@ fetch('http://localhost:3000/users',{
     render(){ 
         return(
             <div>
-                <form>
-                    <input 
-                    type="text"
-                    placeholder="UserName..."
-                    value={this.state.name}
-                    id="name"
-                    onChange={(event) =>this.handleChange(event)}
-                    />
-                    <textarea
-                    type="text"
-                    placeholder="Profile"
-                    id="profile"
-                    value={this.state.profile}
-                    onChange={this.handleChange}
-                    />
-                    <button
-                    type="submit"
-                    className="btn btn-primary mb-2"
-                    onClick={(event) => this.addUser(event)}>
-                        Submit
+                <div class="row d-flex justify-content-center">
+                    <h3 class="mb-3 pt-3 font-weight-bold">Create Your Account</h3>
+                </div>
 
-                    </button>
+                <form>
+                    <div className="form-group">
+                        <input 
+                            className="form-control"
+                            type="text"
+                            placeholder="UserName..."
+                            value={this.state.name}
+                            id="name"
+                            onChange={(event) =>this.handleChange(event)}
+                        />
+                        <textarea
+                            className="form-control"
+                            type="text"
+                            placeholder="Profile"
+                            id="profile"
+                            value={this.state.profile}
+                            onChange={this.handleChange}
+                        />
+                        <button
+                            type="submit"
+                            className="btn btn-primary mb-2"
+                            onClick={(event) => this.addUser(event)}>
+                                Submit
+                        </button>
+                    </div>
                 </form>
+
+                
             </div>
         )
     }

@@ -29,3 +29,16 @@ body {
     padding-top: 0px;
   }
 }
+
+.form-group {
+  margin: 50px;
+}
+
+.zoom {
+  transition: transform .3s; /* Animation */
+  margin: 5px;
+}
+
+.zoom:hover {
+  transform: scale(1.1);
+}
