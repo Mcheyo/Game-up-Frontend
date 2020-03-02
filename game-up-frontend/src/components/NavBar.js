@@ -7,9 +7,11 @@ export default class NavBar extends Component {
             <div className="NavComponent">
                 <nav className="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
                     < div className="container-fluid">
+                        <Link to={`/`}>
                         <div class="navbar-header">
                             <a class="navbar-brand" href="#">LOGO</a>
                         </div>
+                        </Link>
                         <Link to={`/games`}>
                         <div class="navbar-header">
                             <a class="navbar-brand" href="#">GAMES</a>

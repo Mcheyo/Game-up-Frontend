@@ -20,6 +20,11 @@
 }
 /* height: 300px; only if you want fixed height */
 
+.fit-image-carousel{ 
+  height: 60%;
+  width: 100%;
+  object-fit: scale-down;
+}
 body {
   padding-top: 60px;
 }
