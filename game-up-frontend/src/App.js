@@ -5,6 +5,8 @@ import GameSpecs from './components/GamesSpecs'
 import NavBar from './components/NavBar';
 import User from './components/User'
 import {BrowserRouter as Router,Route, Switch} from 'react-router-dom'
+import Home from './components/Home'
+import Footer from './components/Footer'
 class App extends Component {
   state ={
     gamesArray: [],
@@ -43,7 +45,7 @@ class App extends Component {
     <div>
       {!this.state.loading?
       <Router>
-      <NavBar handleChange={this.handleChange} searchTerm={this.state.searchTerm}  handleSignUp={this.handleSignUp}/>
+      <NavBar handleChange={this.handleChange} searchTerm={this.state.searchTerm}  handleSignUp={this.handleSignUp} />
         <Route  path="/games/:id" render={(props) => { 
 
           let id=parseInt(props.match.params.id)
@@ -54,6 +56,8 @@ class App extends Component {
           }} />
         <Route exact path ="/games" render={ () => <GamesContainer gamesArray={filteredGames} />} />
         <Route exact path="/sign-up" component={User} />
+        <Route exact path ='/' render={() => <Home testGames={this.state.gamesArray} />} />
+        <Footer/>
       </Router>
       : <img src='https://cdn.dribbble.com/users/830587/screenshots/4381223/loader_gif.gif'/>}
     </div>
