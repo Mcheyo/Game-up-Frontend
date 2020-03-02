@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 export default class NavBar extends Component {
     render() {
@@ -9,16 +10,24 @@ export default class NavBar extends Component {
                         <div class="navbar-header">
                             <a class="navbar-brand" href="#">LOGO</a>
                         </div>
+                        <Link to={`/games`}>
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">GAMES</a>
+                        </div>
+                        </Link>
 
                         <form className="form-inline my-2 my-lg-0">
                             <input onChange={this.props.handleChange} value={this.props.searchTerm} type="search" className="form-control mr-sm-2" placeholder="Search"></input>
                         </form>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li><button className="btn btn-info"
-                                onClick={(event) => this.props.handleSignUp(event) }    >
+                            <li>
+                                <Link to={`/sign-up`}>
+                                <button className="btn btn-info">
                                 Sign Up
-                            </button> </li>
+                            </button> 
+                              </Link>
+                            </li>
                             <li><a href="#"> Login</a></li>
                         </ul> 
                          

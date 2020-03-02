@@ -13,22 +13,30 @@ export default class User extends Component {
     }
 
 addUser = e => { 
+    
 e.preventDefault()
         // I destructred the states to pass so that it looks cleaner
- const{name, profile} = this.state
-        this.state.name !== ''?
-fetch('http://localhost:3000/users',{ 
-    method: "POST", 
-    headers: {"Content-Type": 
-              "application/json",
-              "Accept":"application/json"}, 
-    body: JSON.stringify({ name, profile})
-})
-.then(res => res.json() )
-.then(user => console.log(user) )  
+this.state.name !== ''? this.addUsertoDatabase(e): alert("You must have a username!")
+
             
-    :alert("You must have a username!")
-    //A little validation so the username can not be empty 
+     //little validation so the username can not be empty 
+}
+
+addUsertoDatabase = (e) => { 
+            // I destructred the states to pass so that it looks cleaner
+
+    const{name, profile} = this.state
+
+    fetch('http://localhost:3000/users',{ 
+        method: "POST", 
+        headers: {"Content-Type" : 
+                  "application/json",
+                  Accept:"application/json"}, 
+        body: JSON.stringify({ name:`${name}`, profile:`${profile}`})
+    })
+    .then(res => res.json())
+    .then(user => console.log(user))
+    // .catch(error => console.log('An error occured', error))
 }
     render(){ 
         return(

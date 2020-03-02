@@ -1,18 +1,20 @@
 
 
 import React, { Component } from 'react'
-
+import {Link} from 'react-router-dom'
 export default class GameSpecs extends Component { 
     render(){ 
         const {name, background_image, rating} = this.props.game
         return(
             <div className="col-lg-4 py-2">
-                <div className="card text-center zoom" onClick={() => this.props.displayGame(this.props.game)}>
+            <Link to={`/games/${this.props.game.id}`}>
+                <div className="card text-center zoom" >
                     <img className="card-img-top" src={background_image} alt={`${name} Video Game Poster`}/>
                     <div className="card-body">
                         <h5 className="card-title">{name} </h5>
                     </div>
                 </div>
+                </Link>
             </div>
         )
     }
