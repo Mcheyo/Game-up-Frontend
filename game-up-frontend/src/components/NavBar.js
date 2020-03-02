@@ -7,12 +7,14 @@ export default class NavBar extends Component {
             <div className="NavComponent">
                 <nav className="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
                     < div className="container-fluid">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="#">LOGO</a>
+                        <Link to={`/`}>
+                        <div className="navbar-header">
+                            <a className="navbar-brand" href="#">LOGO</a>
                         </div>
+                        </Link>
                         <Link to={`/games`}>
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="#">GAMES</a>
+                        <div className="navbar-header">
+                            <a className="navbar-brand" href="#">GAMES</a>
                         </div>
                         </Link>
 
@@ -20,7 +22,7 @@ export default class NavBar extends Component {
                             <input onChange={this.props.handleChange} value={this.props.searchTerm} type="search" className="form-control mr-sm-2" placeholder="Search"></input>
                         </form>
 
-                        <ul class="nav navbar-nav navbar-right">
+                        <ul className="nav navbar-nav navbar-right">
                             <li>
                                 <Link to={`/sign-up`}>
                                 <button className="btn btn-info">

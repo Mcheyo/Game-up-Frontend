@@ -6,7 +6,7 @@ export default class Games extends Component {
         return(
             <div className="container">
                 <div className="row">
-                    <div class="card-deck">
+                    <div className="card-deck">
                     {this.props.gamesArray.map(game => <Game key={game.name}  displayGame={this.props.displayGame} game={game} />)}
                     </div>
                 </div>
