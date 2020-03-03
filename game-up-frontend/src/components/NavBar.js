@@ -37,7 +37,7 @@ export default class NavBar extends Component {
                             <li><a href="#"> Login</a></li>
                             </Link>
                             : 
-                            <button>Logout</button>
+                            <button onClick={this.props.handleLogout}>Logout</button>
                             }
                              
                         </ul> 
