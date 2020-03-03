@@ -40,7 +40,7 @@ class LoginForm extends Component{
               <Form.Control type="username" placeholder="Enter username"  onChange={this.handleChange}/>
               <Form.Text className="text-muted">
                 Hurry to your games!
-              </Form.Text>.
+              </Form.Text>
             </Form.Group>
           
           

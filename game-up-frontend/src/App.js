@@ -64,7 +64,7 @@ handleLogout = event => {
        
           let gameShow = this.state.gamesArray.find(game => game.id === id)
           
-          return  <GameSpecs game={gameShow}  /> 
+          return  <GameSpecs game={gameShow} user={this.state.user} /> 
           }} />
         <Route exact path ="/games" render={ () => <GamesContainer gamesArray={filteredGames} />} />
         <Route exact path="/sign-up" component={SignUp} />
