@@ -28,7 +28,19 @@ export default class GameSpecs extends Component {
         })
     }
 
-
+    handleDelete = () => { 
+        let gameId = this.props.game.id
+        let userId = this.props.user.id
+        let userLike = !this.state.liked
+        
+        fetch('http://localhost:3000/destroy', { 
+            method: "POST", 
+            headers: {"Content-Type" : 
+                      "application/json",
+                      Accept:"application/json"}, 
+            body: JSON.stringify({game_id: gameId, user_id: userId})
+        })
+    }
 
     render(){  
            
@@ -67,7 +79,7 @@ export default class GameSpecs extends Component {
                                 <div className="gameMetacrtic">Metacrtic Rating: {this.props.game.metacritic}</div>
                                 {this.props.user !== null ? (
                                     this.state.liked ?
-                                        <button onClick={this.handleClick}>Dislike</button>:
+                                        <button onClick={this.handleDelete}>Dislike</button>:
                                         <button onClick={this.handleClick}>Like</button> ) : (<></>)
                                 }
                                 
