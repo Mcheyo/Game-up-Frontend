@@ -29,8 +29,11 @@ export default class NavBar extends Component {
                                 Sign Up
                             </button> 
                               </Link>
+
                             </li>
+                              <Link to={`/login`}>
                             <li><a href="#"> Login</a></li>
+                            </Link>
                         </ul> 
                          
                     </div>

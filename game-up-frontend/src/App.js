@@ -3,17 +3,19 @@ import './App.css';
 import GamesContainer from './containers/GamesContainer'
 import GameSpecs from './components/GamesSpecs'
 import NavBar from './components/NavBar';
-import User from './components/User'
+import SignUp from './components/SignUp'
 import {BrowserRouter as Router,Route, Switch} from 'react-router-dom'
 import Home from './components/Home'
 import Footer from './components/Footer'
+import Login from './components/Login'
 class App extends Component {
   state ={
     gamesArray: [],
     displayedGame: null,
     searchTerm: "", 
     userPage: false, 
-    loading: true 
+    loading: true, 
+    user: null
 
   }
 
@@ -36,6 +38,10 @@ class App extends Component {
     this.setState({userPage: !userToggle})
   }
 
+  handleUser = user => { 
+    this.setState({user: user })
+  }
+
   render() {
     let filteredGames = this.state.gamesArray.filter(game => game.name.toLowerCase().includes(this.state.searchTerm)) 
     let renderGames= this.state.displayedGame?
@@ -55,8 +61,9 @@ class App extends Component {
           return  <GameSpecs game={gameShow}  /> 
           }} />
         <Route exact path ="/games" render={ () => <GamesContainer gamesArray={filteredGames} />} />
-        <Route exact path="/sign-up" component={User} />
+        <Route exact path="/sign-up" component={SignUp} />
         <Route exact path ='/' render={() => <Home testGames={this.state.gamesArray} />} />
+        <Route exact path ='/login' render={() => <Login handleUser={this.handleUser}/>} />
         <Footer/>
       </Router>
       : <img src='https://cdn.dribbble.com/users/830587/screenshots/4381223/loader_gif.gif'/>}
