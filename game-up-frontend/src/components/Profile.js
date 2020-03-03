@@ -5,10 +5,12 @@ class Profile extends Component {
         myGames : []
     }
 
-    // componentDidMount(){
-
-    // }
-
+    componentDidMount(){
+        let id = this.props.user.id
+        fetch("http://localhost:3000/users/" + id)
+        .then(res => res.json())
+        .then(user => this.setState({myGames: user.games }))
+    }
 
     render(){ 
      
@@ -20,7 +22,7 @@ class Profile extends Component {
                     <div className="card-body">
                         <h5 className="card-title">{this.props.user.name} </h5>
                         <p> Games I Like:</p>
-                        <p> </p>
+                        {this.state.myGames.map(game => game.name)}
                     </div>
                 </div>
                 
