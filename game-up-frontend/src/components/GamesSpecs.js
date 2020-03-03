@@ -21,10 +21,13 @@ export default class GameSpecs extends Component {
                     <div className="container">
                     <div className="row">
                         <div className="col-lg">
+                            {this.props.game.clip? 
                             <div className="embed-responsive embed-responsive-21by9">
                                 <iframe className="embed-responsive-item" width="320" height="240" src={`${this.props.game.clip}`} frameBorder="0" allowFullScreen>
                                 </iframe>
                             </div>
+                            : <div>:(</div>
+                           }
 
                             <div className="user-reviews">
                                 <div className="userReviews">User Reviews{}</div>

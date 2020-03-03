@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 
-const Profile = props => {
+class Profile extends Component {
+    state={ 
+        myGames : []
+    }
+    render(){ 
      
         return( 
             <div className="col-lg-4 py-2">
@@ -8,12 +12,13 @@ const Profile = props => {
                 <div className="card text-center zoom" >
                   
                     <div className="card-body">
-                        <h5 className="card-title">{props.user.name} </h5>
+                        <h5 className="card-title">{this.props.user.name} </h5>
                     </div>
                 </div>
                 
             </div>
         )
+    }
 }
 
 export default Profile 
