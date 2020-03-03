@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 
 export default class NavBar extends Component {
+
     render() {
         return (
             <div className="NavComponent">
@@ -31,9 +32,14 @@ export default class NavBar extends Component {
                               </Link>
 
                             </li>
-                              <Link to={`/login`}>
+                            {this.props.handleLogin === null ?  
+                            <Link to={`/login`}>
                             <li><a href="#"> Login</a></li>
                             </Link>
+                            : 
+                            <button>Logout</button>
+                            }
+                             
                         </ul> 
                          
                     </div>

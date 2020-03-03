@@ -51,7 +51,7 @@ class App extends Component {
     <div>
       {!this.state.loading?
       <Router>
-      <NavBar handleChange={this.handleChange} searchTerm={this.state.searchTerm}  handleSignUp={this.handleSignUp} />
+      <NavBar handleChange={this.handleChange} searchTerm={this.state.searchTerm}  handleSignUp={this.handleSignUp} handleLogin={this.state.user} />
         <Route  path="/games/:id" render={(props) => { 
 
           let id=parseInt(props.match.params.id)
