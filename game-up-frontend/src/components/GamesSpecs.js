@@ -2,12 +2,6 @@ import React, { Component } from 'react'
 
 
 export default class GameSpecs extends Component { 
-<<<<<<< HEAD
-   
-    render(){ 
-    
-        // let {name, released, background_image, rating, metacritic, playtime, clip} = this.props.game
-=======
 
     constructor(){
         super()
@@ -39,7 +33,6 @@ export default class GameSpecs extends Component {
     render(){  
            
       // let {name, released, background_image, rating, metacritic, playtime, clip} = this.props.game
->>>>>>> ec21a5a3e92a1789cecac03f80ee11c3aa39fa1c
         return(
             <div >
                 <div className=""  >
