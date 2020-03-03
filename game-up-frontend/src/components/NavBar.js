@@ -20,7 +20,7 @@ export default class NavBar extends Component {
                         </Link>
 
                         <form className="form-inline my-2 my-lg-0">
-                            <input onChange={this.props.handleChange} value={this.props.searchTerm} type="search" className="form-control mr-sm-2" placeholder="Search"></input>
+                            <input onChange={this.props.handleChange} value={this.props.searchTerm} type="search" className="form-control mr-sm-2" placeholder="Search" />
                         </form>
 
                         <ul className="nav navbar-nav navbar-right">
@@ -34,10 +34,10 @@ export default class NavBar extends Component {
                             </li>
                             {this.props.handleLogin === null ?  
                             <Link to={`/login`}>
-                            <li><a href="#"> Login</a></li>
+                            <li><a href="#"> Login</a></li> 
                             </Link>
                             : 
-                            <button onClick={this.props.handleLogout}>Logout</button>
+                            <button onClick={this.props.handleLogout} onS>Logout</button>
                             }
                              
                         </ul> 

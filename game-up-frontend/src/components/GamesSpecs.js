@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 
 
 export default class GameSpecs extends Component { 
+   
     render(){ 
     
         // let {name, released, background_image, rating, metacritic, playtime, clip} = this.props.game
         return(
-            <div>
-                <div className="">
+            <div >
+                <div className=""  >
                     <h1 className="gameName">{this.props.game.name}</h1>
                     
                     {/* <div className="row">
