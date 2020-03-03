@@ -4,6 +4,12 @@ class Profile extends Component {
     state={ 
         myGames : []
     }
+
+    // componentDidMount(){
+
+    // }
+
+
     render(){ 
      
         return( 
@@ -13,6 +19,8 @@ class Profile extends Component {
                   
                     <div className="card-body">
                         <h5 className="card-title">{this.props.user.name} </h5>
+                        <p> Games I Like:</p>
+                        <p> </p>
                     </div>
                 </div>
                 
