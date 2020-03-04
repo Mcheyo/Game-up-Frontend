@@ -11,7 +11,7 @@ const Footer =props => {
             
                 <Navbar fixed="bottom" expand="lg" variant="dark" bg="dark">
                     <Navbar.Brand target="_blank" href="https://www.linkedin.com/in/anna-dybas-5221519/">Anna Dybas < FaLinkedin /> </Navbar.Brand>
-                    <Navbar.Brand target="_blank" href="https://github.com/Mcheyo/Game-up-Frontend">Github Repo <FaGithub /> </Navbar.Brand>
+                    <Navbar.Brand className="mx-auto order-0" target="_blank" href="https://github.com/Mcheyo/Game-up-Frontend">Github Repo <FaGithub /> </Navbar.Brand>
                     <Navbar.Brand target="_blank" href="https://www.linkedin.com/in/mansour-cheyo/">Mansour Cheyo < FaLinkedin /> </Navbar.Brand>   
                 </Navbar>
             
