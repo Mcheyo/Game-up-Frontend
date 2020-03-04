@@ -9,7 +9,10 @@ export default class GameSpecs extends Component {
             liked: false
         }
     }
-
+componentDidMount(){ 
+    let x = this.props.myGames.find(game => game.name === this.props.game.name) ? true : false
+  this.setState({liked: x })
+}
     handleClick = () => {
         let gameId = this.props.game.id
         let userId = this.props.user.id
@@ -32,14 +35,16 @@ export default class GameSpecs extends Component {
         let gameId = this.props.game.id
         let userId = this.props.user.id
         let userLike = !this.state.liked
-        
+        this.setState({liked: false })
         fetch('http://localhost:3000/destroy', { 
             method: "POST", 
             headers: {"Content-Type" : 
                       "application/json",
                       Accept:"application/json"}, 
             body: JSON.stringify({game_id: gameId, user_id: userId})
+
         })
+        
     }
 
     render(){  
@@ -78,9 +83,9 @@ export default class GameSpecs extends Component {
                                 <div className="gamePlaytime">Playtime: {this.props.game.playtime}</div>
                                 <div className="gameMetacrtic">Metacrtic Rating: {this.props.game.metacritic}</div>
                                 {this.props.user !== null ? (
-                                    this.state.liked ?
-                                        <button className="btn btn-light" onClick={this.handleDelete}>Dislike</button>:
-                                        <button className="btn btn-danger" onClick={this.handleClick}>Like</button> ) : (<></>)
+                                      !this.state.liked ? 
+                                        <button className="btn btn-danger" onClick={this.handleClick}>Like</button>:
+                                        <button className="btn btn-light" onClick={this.handleDelete}>Dislike</button> ) : (<></>)
                                 }
                                 
                         </div>

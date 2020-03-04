@@ -1,16 +1,11 @@
 import React, { Component } from 'react'
 
 class Profile extends Component {
-    state={ 
-        myGames : []
-    }
+    // state={ 
+    //     myGames : []
+    // }
 
-    componentDidMount(){
-        let id = this.props.user.id
-        fetch("http://localhost:3000/users/" + id)
-        .then(res => res.json())
-        .then(user => this.setState({myGames: user.games }))
-    }
+ 
 
     render(){ 
     
@@ -23,8 +18,8 @@ class Profile extends Component {
                         <h5 className="card-title">{this.props.user.name} </h5>
                         <p> Games I Like:</p>
                         {
-                            this.state.myGames.length < 1 ? 'GO like some Games!' :
-                        this.state.myGames.map(game => game.name)
+                            this.props.myGames.length < 1 ? 'GO like some Games!' :
+                        this.props.myGames.map(game => game.name)
                         }
                     </div>
 

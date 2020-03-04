@@ -16,7 +16,8 @@ class App extends Component {
     searchTerm: "", 
     userPage: false, 
     loading: true, 
-    user: null
+    user: null, 
+    myGames: []
 
   }
 
@@ -41,12 +42,16 @@ class App extends Component {
 
   handleUser = user => { 
     this.setState({user: user })
-    
+    let id = this.state.user.id
+  fetch("http://localhost:3000/users/" + id)
+  .then(res => res.json())
+  .then(user => this.setState({myGames: user.games }))
   }
 
 handleLogout = event => { 
   this.setState({user: null })
 }
+
 
   render() {
     let filteredGames = this.state.gamesArray.filter(game => game.name.toLowerCase().includes(this.state.searchTerm)) 
@@ -64,18 +69,18 @@ handleLogout = event => {
        
           let gameShow = this.state.gamesArray.find(game => game.id === id)
           
-          return  <GameSpecs game={gameShow} user={this.state.user} /> 
+          return  <GameSpecs game={gameShow} user={this.state.user} myGames={this.state.myGames} /> 
           }} />
         <Route exact path ="/games" render={ () => <GamesContainer gamesArray={filteredGames} />} />
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path ='/' render={() => <Home testGames={this.state.gamesArray} />} />
         <Route exact path ='/profile' render={() => { 
-          return this.state.user? <Profile user={this.state.user} />: 
+          return this.state.user? <Profile user={this.state.user} myGames={this.state.myGames} />: 
           <Redirect to='/login'/> 
           }} />
         <Route exact path ='/login' render={() => {
           return this.state.user? <Redirect to="/profile/"/>: 
-        <Login handleUser={this.handleUser}/>} }/>
+        <Login handleUser={this.handleUser} />} }/>
         <Footer/>
       </Router>
       : <img src='https://cdn.dribbble.com/users/830587/screenshots/4381223/loader_gif.gif'/>}

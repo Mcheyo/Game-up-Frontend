@@ -44,7 +44,7 @@ class LoginForm extends Component{
             </Form.Group>
           
           
-            <Button variant="primary" type="submit" >
+            <Button variant="primary" type="submit">
               Submit
             </Button>
           </Form>
