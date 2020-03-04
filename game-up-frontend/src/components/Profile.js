@@ -27,6 +27,12 @@ class Profile extends Component {
                         this.state.myGames.map(game => game.name)
                         }
                     </div>
+
+                </div>
+                <div>
+                    {
+                        this.props.user.profile
+                    }
                 </div>
                 
             </div>
