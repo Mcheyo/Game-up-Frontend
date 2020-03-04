@@ -79,8 +79,8 @@ export default class GameSpecs extends Component {
                                 <div className="gameMetacrtic">Metacrtic Rating: {this.props.game.metacritic}</div>
                                 {this.props.user !== null ? (
                                     this.state.liked ?
-                                        <button onClick={this.handleDelete}>Dislike</button>:
-                                        <button onClick={this.handleClick}>Like</button> ) : (<></>)
+                                        <button className="btn btn-light" onClick={this.handleDelete}>Dislike</button>:
+                                        <button className="btn btn-danger" onClick={this.handleClick}>Like</button> ) : (<></>)
                                 }
                                 
                         </div>

@@ -20,7 +20,7 @@ export default class NavBar extends Component {
                         </div></li>
                         </Link>
                         </ul>
-                        
+
                         <form className="form-inline mx-auto order-0">
                             <input onChange={this.props.handleChange} value={this.props.searchTerm} type="search" className="form-control mr-sm-2" placeholder="Search"></input>
                         </form>
@@ -43,7 +43,7 @@ export default class NavBar extends Component {
                                 </Link>
                             </li>
                             : 
-                            <button onClick={this.props.handleLogout} onS>Logout</button>
+                            <button className="btn btn-warning" onClick={this.props.handleLogout} onS>Logout</button>
                             }
                              
                         </ul> 
