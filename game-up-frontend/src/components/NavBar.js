@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import logo from '../logo.png'
+
 
 export default class NavBar extends Component {
 
@@ -7,42 +9,46 @@ export default class NavBar extends Component {
         return (
             <div className="NavComponent">
                 <nav className="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-                    < div className="container-fluid">
+                    {/* < div className="container-fluid"> */}
                         <Link to={`/`}>
-                        <div className="navbar-header">
-                            <a className="navbar-brand" href="#">LOGO</a>
-                        </div>
+                            <a className="navbar-brand" href="#"><img className="logo"src={logo} /></a>
                         </Link>
+                        <ul className="navbar-nav">
                         <Link to={`/games`}>
-                        <div className="navbar-header">
+                        <li><div className="nav-item">
                             <a className="navbar-brand" href="#">GAMES</a>
-                        </div>
+                        </div></li>
                         </Link>
+                        </ul>
 
-                        <form className="form-inline my-2 my-lg-0">
+                        <form className="form-inline mx-auto order-0">
                             <input onChange={this.props.handleChange} value={this.props.searchTerm} type="search" className="form-control mr-sm-2" placeholder="Search"></input>
                         </form>
 
-                        <ul className="nav navbar-nav navbar-right">
+                        <ul className=" navbar-nav navbar-right ml-auto">
                             <li>
                                 <Link to={`/sign-up`}>
-                                <button className="btn btn-info">
-                                Sign Up
-                            </button> 
-                              </Link>
-
+                                    <button className="btn btn-info">
+                                        Sign Up
+                                    </button> 
+                                </Link>
                             </li>
-                            {this.props.handleLogin === null ?  
-                            <Link to={`/login`}>
-                            <li><a href="#"> Login</a></li>
-                            </Link>
+
+                            {this.props.handleLogin === null ? 
+                            <li>
+                                <Link to={`/login`}>
+                                  <button className="btn btn-warning"> 
+                                     Login
+                                    </button>
+                                </Link>
+                            </li>
                             : 
                             <button onClick={this.props.handleLogout}>Logout</button>
                             }
                              
                         </ul> 
                          
-                    </div>
+                    {/* </div> */}
                 </nav>            
             </div>
         )

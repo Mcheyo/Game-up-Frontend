@@ -26,7 +26,7 @@
   object-fit: scale-down;
 }
 body {
-  padding-top: 60px;
+  padding-top: 75px;
 }
 
 @media (max-width: 979px) {
@@ -46,4 +46,10 @@ body {
 
 .zoom:hover {
   transform: scale(1.1);
+}
+
+.logo {
+  width: auto;
+  height: 50px;
+
 }
