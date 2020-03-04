@@ -27,6 +27,7 @@
 }
 body {
   padding-top: 75px;
+  padding-bottom: 55px;
 }
 
 @media (max-width: 979px) {

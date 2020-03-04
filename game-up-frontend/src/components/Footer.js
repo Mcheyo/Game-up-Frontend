@@ -9,7 +9,7 @@ const Footer =props => {
     return (
         <div className="bottom">
             
-                <Navbar sticky="bottom" expand="lg" variant="dark" bg="dark">
+                <Navbar fixed="bottom" expand="lg" variant="dark" bg="dark">
                     <Navbar.Brand target="_blank" href="https://www.linkedin.com/in/anna-dybas-5221519/">Anna Dybas < FaLinkedin /> </Navbar.Brand>
                     <Navbar.Brand target="_blank" href="https://github.com/Mcheyo/Game-up-Frontend">Github Repo <FaGithub /> </Navbar.Brand>
                     <Navbar.Brand target="_blank" href="https://www.linkedin.com/in/mansour-cheyo/">Mansour Cheyo < FaLinkedin /> </Navbar.Brand>   
