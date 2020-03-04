@@ -28,6 +28,7 @@
 body {
   padding-top: 75px;
   padding-bottom: 55px;
+  background-color: #6FC7A8;
 }
 
 @media (max-width: 979px) {
@@ -55,3 +56,18 @@ body {
 
 }
 
+.game-title{
+  text-align: center;
+  color: white;
+  font-size: 300%;
+}
+
+.user-reviews{
+  color: white;
+  font-size: 150%;
+  text-align: center;
+}
+
+.suggested-game{
+  color: white;
+}
