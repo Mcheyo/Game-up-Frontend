@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-
+import {Link, Redirect} from 'react-router-dom'
 export default class SignUp extends Component { 
     state={ 
         name: '', 
-        profile: ''
+        profile: '', 
+        redirect: false 
     }
     handleChange =(event) => { 
         // I put ids on the inputs so i could grab the values and set the state in a dynamic manner. 
@@ -35,10 +36,19 @@ addUsertoDatabase = (e) => {
         body: JSON.stringify({ name:`${name}`, profile:`${profile}`})
     })
     .then(res => res.json())
-    .then(user => console.log(user))
+    .then(user => {
+        this.setState({redirect: true})
+        this.props.handleUser(user)} 
+        
+        )
+    
+    
     // .catch(error => console.log('An error occured', error))
 }
     render(){ 
+        if(this.state.redirect){ 
+            return <Redirect to="/profile"/>
+        }
         return(
             <div>
                 <div class="row d-flex justify-content-center">
@@ -63,12 +73,14 @@ addUsertoDatabase = (e) => {
                             value={this.state.profile}
                             onChange={this.handleChange}
                         />
+                        
                         <button
                             type="submit"
                             className="btn btn-primary mb-2"
                             onClick={(event) => this.addUser(event)}>
                                 Submit
                         </button>
+                       
                     </div>
                 </form>
 

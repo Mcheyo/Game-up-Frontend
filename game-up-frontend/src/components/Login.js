@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import {withRouter} from "react-router-dom"
 import {Button, Form} from "react-bootstrap"
-
+import {Link} from "react-router-dom"
 
 class LoginForm extends Component{ 
     state={ 
@@ -38,8 +38,10 @@ class LoginForm extends Component{
             <Form.Group controlId="Username">
               <Form.Label>Username</Form.Label>
               <Form.Control type="username" placeholder="Enter username"  onChange={this.handleChange}/>
-              <Form.Text className="text-muted">
-                Hurry to your games!
+              <Form.Text className="text">
+                  Not a Member? <Link to='/sign-up'>
+                  Sign up here
+                      </Link>
               </Form.Text>
             </Form.Group>
           
