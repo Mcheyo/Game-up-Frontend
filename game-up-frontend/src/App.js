@@ -4,7 +4,8 @@ import GamesContainer from './containers/GamesContainer'
 import GameSpecs from './components/GamesSpecs'
 import NavBar from './components/NavBar';
 import SignUp from './components/SignUp'
-import {BrowserRouter as Router,Route, Switch, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router,Route, Switch, Redirect } from 'react-router-dom'
+import {withRouter} from "react-router"
 import Home from './components/Home'
 import Footer from './components/Footer'
 import Login from './components/Login'
@@ -22,6 +23,7 @@ class App extends Component {
   }
 
   componentDidMount(){ 
+    
     fetch('http://localhost:3000/games')
     .then( res => res.json())
     .then(games => this.setState({gamesArray: games, loading: false}))
@@ -41,11 +43,13 @@ class App extends Component {
   }
 
   handleUser = user => { 
+    console.log("i am the class props:", this.props)
     this.setState({user: user })
     let id = this.state.user.id
   fetch("http://localhost:3000/users/" + id)
   .then(res => res.json())
   .then(user => this.setState({myGames: user.games }))
+  
   }
 
 handleLogout = event => { 
@@ -54,6 +58,7 @@ handleLogout = event => {
 
 
   render() {
+    
     let filteredGames = this.state.gamesArray.filter(game => game.name.toLowerCase().includes(this.state.searchTerm)) 
     let renderGames= this.state.displayedGame?
       <GameSpecs game={this.state.displayedGame} /> :
@@ -62,7 +67,8 @@ handleLogout = event => {
     <div>
       {!this.state.loading?
       <Router>
-      <NavBar handleChange={this.handleChange} searchTerm={this.state.searchTerm}  handleSignUp={this.handleSignUp} handleLogin={this.state.user} handleLogout={this.handleLogout} />
+      <Route path='/' 
+      render={(props) => <NavBar handleChange={this.handleChange} searchTerm={this.state.searchTerm}  handleSignUp={this.handleSignUp} handleLogin={this.state.user} handleLogout={this.handleLogout} props={props}/> } />
         <Route  path="/games/:id" render={(props) => { 
 
           let id=parseInt(props.match.params.id)
@@ -72,7 +78,7 @@ handleLogout = event => {
           return  <GameSpecs game={gameShow} user={this.state.user} myGames={this.state.myGames} /> 
           }} />
         <Route exact path ="/games" render={ () => <GamesContainer gamesArray={filteredGames} />} />
-        <Route exact path="/sign-up" component={SignUp} />
+        <Route exact path="/sign-up" render={() => <SignUp handleUser={this.handleUser}/>} />
         <Route exact path ='/' render={() => <Home testGames={this.state.gamesArray} />} />
         <Route exact path ='/profile' render={() => { 
           return this.state.user? <Profile user={this.state.user} myGames={this.state.myGames} />: 
@@ -88,4 +94,4 @@ handleLogout = event => {
   )}
 }
 
-export default App;
+export default App ;
