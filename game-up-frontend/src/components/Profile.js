@@ -9,7 +9,7 @@ class Profile extends Component {
  
 
     render(){ 
-    debugger
+    
         return( 
             
 <Container>
@@ -43,7 +43,7 @@ class Profile extends Component {
                   </div>
  
                  </div>
-               >
+               
       </Col>
    </Row>
 

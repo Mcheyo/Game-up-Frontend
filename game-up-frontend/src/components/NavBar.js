@@ -49,7 +49,7 @@ export default class NavBar extends Component {
                                 </Link>
                             </li>
                             : 
-                            <button className="btn btn-warning" onClick={this.props.handleLogout} onS>Logout</button>
+                            <button className="btn btn-warning" onClick={this.props.handleLogout} >Logout</button>
                             }
                              
                         </ul> 

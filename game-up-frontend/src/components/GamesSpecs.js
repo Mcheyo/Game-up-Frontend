@@ -46,6 +46,15 @@ componentDidMount(){
         })
         
     }
+    componentDidUpdate(){ 
+        if(this.props.user !== null) {    
+        let id = this.props.user.id 
+        fetch('http://localhost:3000/users/'+ id)
+         .then(res => res.json())
+         .then( user => this.props.handleUpdatedLikes(user))
+        }
+        
+      }
 
     render(){  
            
@@ -55,7 +64,7 @@ componentDidMount(){
                 <div className="">
                     <h1 className="game-title">{this.props.game.name}</h1>
                         <div className="gameImage">
-                            <img class="img-responsive fit-image" src={`${this.props.game.background_image}`}/>
+                            <img className="img-responsive fit-image" src={`${this.props.game.background_image}`}/>
                     
                     </div>
                     <div className="container">

@@ -37,13 +37,12 @@ class App extends Component {
     this.setState({searchTerm: event.target.value.toLowerCase()})
   }
 
-  handleSignUp = event => { 
+  handleSignUp = () => { 
     let userToggle = this.state.userPage
     this.setState({userPage: !userToggle})
   }
 
   handleUser = user => { 
-    console.log("i am the class props:", this.props)
     this.setState({user: user })
     let id = this.state.user.id
   fetch("http://localhost:3000/users/" + id)
@@ -52,17 +51,21 @@ class App extends Component {
   
   }
 
-handleLogout = event => { 
+handleLogout = () => { 
   this.setState({user: null })
+}
+
+handleUpdatedLikes = user => { 
+  if(this.state.myGames !== user.games){ 
+    this.setState({myGames: user.games })
+  }
 }
 
 
   render() {
     
     let filteredGames = this.state.gamesArray.filter(game => game.name.toLowerCase().includes(this.state.searchTerm)) 
-    let renderGames= this.state.displayedGame?
-      <GameSpecs game={this.state.displayedGame} /> :
-      <GamesContainer gamesArray={filteredGames} displayGame={this.displayGame}/>
+   
   return (
     <div>
       {!this.state.loading?
@@ -75,7 +78,7 @@ handleLogout = event => {
        
           let gameShow = this.state.gamesArray.find(game => game.id === id)
           
-          return  <GameSpecs game={gameShow} user={this.state.user} myGames={this.state.myGames} /> 
+          return  <GameSpecs game={gameShow} user={this.state.user} myGames={this.state.myGames} handleUpdatedLikes={this.handleUpdatedLikes} /> 
           }} />
         <Route exact path ="/games" render={ () => <GamesContainer gamesArray={filteredGames} />} />
         <Route exact path="/sign-up" render={() => <SignUp handleUser={this.handleUser}/>} />
