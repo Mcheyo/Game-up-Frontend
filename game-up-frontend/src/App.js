@@ -43,6 +43,7 @@ class App extends Component {
   }
 
   handleUser = user => { 
+    debugger
     this.setState({user: user })
     let id = this.state.user.id
   fetch("http://localhost:3000/users/" + id)

@@ -29,7 +29,14 @@ class LoginForm extends Component{
             })    
         })
         .then(res => res.json())
-        .then(user => this.props.handleUser(user) )
+        .then(user => {
+            if(user.message){ 
+                alert(user.message)
+            }
+            else{ 
+            this.props.handleUser(user) 
+            }
+        })
     }
 
     render(){ 

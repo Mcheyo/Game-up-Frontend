@@ -4,6 +4,7 @@ export default class SignUp extends Component {
     state={ 
         name: '', 
         profile: '', 
+        password: '',
         redirect: false 
     }
     handleChange =(event) => { 
@@ -26,19 +27,25 @@ this.state.name !== ''? this.addUsertoDatabase(e): alert("You must have a userna
 addUsertoDatabase = (e) => { 
             // I destructred the states to pass so that it looks cleaner
 
-    const{name, profile} = this.state
+    const{name, profile, password} = this.state
 
     fetch('http://localhost:3000/users',{ 
         method: "POST", 
         headers: {"Content-Type" : 
                   "application/json",
                   Accept:"application/json"}, 
-        body: JSON.stringify({ name:`${name}`, profile:`${profile}`})
+        body: JSON.stringify({ name:`${name}`, profile:`${profile}`, password_digest:`${password}`})
     })
     .then(res => res.json())
     .then(user => {
+    
+        if(user.message){ 
+            user.message.forEach(mes => alert(mes))
+        }
+        else{ 
         this.setState({redirect: true})
         this.props.handleUser(user)} 
+    } 
         
         )
     
@@ -51,8 +58,8 @@ addUsertoDatabase = (e) => {
         }
         return(
             <div>
-                <div class="row d-flex justify-content-center">
-                    <h3 class="mb-3 pt-3 font-weight-bold">Create Your Account</h3>
+                <div className="row d-flex justify-content-center">
+                    <h3 className="mb-3 pt-3 font-weight-bold">Create Your Account</h3>
                 </div>
 
                 <form>
@@ -63,6 +70,14 @@ addUsertoDatabase = (e) => {
                             placeholder="UserName..."
                             value={this.state.name}
                             id="name"
+                            onChange={(event) =>this.handleChange(event)}
+                        />
+                         <input 
+                            className="form-control"
+                            type="password"
+                            placeholder="Password"
+                            value={this.state.password}
+                            id="password"
                             onChange={(event) =>this.handleChange(event)}
                         />
                         <textarea
