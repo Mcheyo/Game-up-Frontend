@@ -34,7 +34,7 @@ addUsertoDatabase = (e) => {
         headers: {"Content-Type" : 
                   "application/json",
                   Accept:"application/json"}, 
-        body: JSON.stringify({ name:`${name}`, profile:`${profile}`, password_digest:`${password}`})
+        body: JSON.stringify({ name:`${name}`, profile:`${profile}`, password:`${password}`})
     })
     .then(res => res.json())
     .then(user => {
