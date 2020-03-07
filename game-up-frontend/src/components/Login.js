@@ -5,19 +5,21 @@ import {Link} from "react-router-dom"
 
 class LoginForm extends Component{ 
     state={ 
-        name: ""
+        name: "", 
+        password: ""
     }
 
 
     handleChange = (e) => { 
-    
-        this.setState({name: e.target.value})
+    let id = e.target.name
+    let value = e.target.value
+        this.setState({[id]: value})
     }
 
 
     handleLoginSubmit = (e) => { 
         e.preventDefault()
-        let params = this.state.name
+        let params = this.state
         fetch('http://localhost:3000/login', { 
             method:"POST", 
             headers: { 
@@ -25,7 +27,7 @@ class LoginForm extends Component{
                 "Accept": "applicaiton/json"
             },
             body: JSON.stringify({
-                name: params
+                name: params.name, password:params.password
             })    
         })
         .then(res => res.json())
@@ -44,7 +46,20 @@ class LoginForm extends Component{
             <Form onSubmit={this.handleLoginSubmit}>
             <Form.Group controlId="Username">
               <Form.Label>Username</Form.Label>
-              <Form.Control type="username" placeholder="Enter username"  onChange={this.handleChange}/>
+              <Form.Control type="username"
+               placeholder="Enter username"  
+               name="name"
+               onChange={(event) => this.handleChange(event)}
+               />
+              
+              <Form.Control
+              type="password"
+              label="password"
+              placeholder="password"
+              name="password"
+              onChange={(event) => this.handleChange(event)}
+              value={this.state.password}
+            />
               <Form.Text className="text">
                   Not a Member? <Link to='/sign-up'>
                   Sign up here
