@@ -57,7 +57,7 @@ handleLogout = () => {
 }
 
 handleUpdatedLikes = user => { 
-  if(this.state.myGames !== user.games){ 
+  if(this.state.myGames.length !== user.games.length){ 
     this.setState({myGames: user.games })
   }
 }
