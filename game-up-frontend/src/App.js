@@ -10,6 +10,7 @@ import Home from './components/Home'
 import Footer from './components/Footer'
 import Login from './components/Login'
 import Profile from './components/Profile'
+
 class App extends Component {
   state ={
     gamesArray: [],
@@ -23,7 +24,6 @@ class App extends Component {
   }
 
   componentDidMount(){ 
-    
     fetch('http://localhost:3000/games')
     .then( res => res.json())
     .then(games => this.setState({gamesArray: games, loading: false}))
