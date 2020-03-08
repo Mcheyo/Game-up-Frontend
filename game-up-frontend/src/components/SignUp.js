@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {Link, Redirect} from 'react-router-dom'
+import { Button, Form, Card} from "react-bootstrap"
+import { CardBody } from 'react-bootstrap/Card'
 export default class SignUp extends Component { 
     state={ 
         name: '', 
@@ -58,12 +60,16 @@ addUsertoDatabase = (e) => {
         }
         return(
             <div>
-                <div className="row d-flex justify-content-center">
+                <div className="form-group">
+                <Card className="form-card">
+                {/* <div className="row d-flex justify-content-center">
                     <h3 className="mb-3 pt-3 font-weight-bold">Create Your Account</h3>
-                </div>
-
-                <form>
-                    <div className="form-group">
+                </div> */}
+                <Card.Body>
+                <Card.Title>Create Your Account</Card.Title>
+                    <Form>
+                        <Form.Group controlId="Username">
+                        <Form.Label>Username</Form.Label>
                         <input 
                             className="form-control"
                             type="text"
@@ -72,6 +78,7 @@ addUsertoDatabase = (e) => {
                             id="name"
                             onChange={(event) =>this.handleChange(event)}
                         />
+                        <Form.Label>Password</Form.Label>
                          <input 
                             className="form-control"
                             type="password"
@@ -80,6 +87,7 @@ addUsertoDatabase = (e) => {
                             id="password"
                             onChange={(event) =>this.handleChange(event)}
                         />
+                        <Form.Label>Profile</Form.Label>
                         <textarea
                             className="form-control"
                             type="text"
@@ -88,18 +96,19 @@ addUsertoDatabase = (e) => {
                             value={this.state.profile}
                             onChange={this.handleChange}
                         />
+                        </Form.Group>
                         
-                        <button
-                            type="submit"
-                            className="btn btn-primary mb-2"
-                            onClick={(event) => this.addUser(event)}>
-                                Submit
-                        </button>
-                       
-                    </div>
-                </form>
-
-                
+                        <Form.Group>
+                            <Button variant="primary" size="lg" block
+                                type="submit"
+                                onClick={(event) => this.addUser(event)}>
+                                    Submit
+                            </Button>
+                        </Form.Group>
+                    </Form>
+                    </Card.Body>
+                    </Card>
+                </div>
             </div>
         )
     }

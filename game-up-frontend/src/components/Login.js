@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import {withRouter} from "react-router-dom"
-import {Button, Form} from "react-bootstrap"
+import {Button, Form, Card} from "react-bootstrap"
 import {Link} from "react-router-dom"
 
 class LoginForm extends Component{ 
@@ -44,33 +44,43 @@ class LoginForm extends Component{
 
     render(){ 
         return(
+            <div className="form-group"> 
+            <Card className="form-card">
             <Form onSubmit={this.handleLoginSubmit}>
-            <Form.Group controlId="Username">
-              <Form.Label>Username</Form.Label>
-              <Form.Control type="username"
-               placeholder="Enter username"  
-               name="name"
-               onChange={(event) => this.handleChange(event)}
-               />
-              
-              <Form.Control
-              type="password"
-              label="password"
-              placeholder="password"
-              name="password"
-              onChange={(event) => this.handleChange(event)}
-              value={this.state.password}
-            />
-              <Form.Text className="text">
-                  Not a Member? <Link to='/sign-up'>
-                  Sign up here
-                      </Link>
-              </Form.Text>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-            </Form.Group>
-          </Form>
+                <Form.Group controlId="Username">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control type="username"
+                    placeholder="Enter username"  
+                    name="name"
+                    onChange={(event) => this.handleChange(event)}
+                    />
+                </Form.Group>
+
+                <Form.Group controlId="password">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                        type="password"
+                        label="password"
+                        placeholder="password"
+                        name="password"
+                        onChange={(event) => this.handleChange(event)}
+                        value={this.state.password}
+                    />
+                    <Form.Text className="text">
+                        Not a Member? <Link to='/sign-up'>
+                        Sign up here
+                            </Link>
+                    </Form.Text>
+                </Form.Group>
+
+                <Form.Group controlId="submit">
+                    <Button variant="primary" type="submit" size="lg" block>
+                    Submit
+                    </Button>
+                </Form.Group>
+            </Form>
+            </Card>
+            </div>
         )
     }
 }

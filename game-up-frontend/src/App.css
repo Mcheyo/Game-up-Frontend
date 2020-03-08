@@ -45,6 +45,11 @@ html{
 
 .form-group {
   margin: 50px;
+  opacity: 0.75;
+}
+
+.form-card{
+  width: 30vw;
 }
 
 .zoom {
@@ -85,3 +90,7 @@ html{
   background-size: cover; 
   background: url(./background2.jpg) no-repeat center/cover fixed;
 } */
+
+form{
+ 
+}
