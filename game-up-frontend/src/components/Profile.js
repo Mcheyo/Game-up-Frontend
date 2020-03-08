@@ -9,7 +9,7 @@ class Profile extends Component {
  
 
     render(){ 
-    
+    debugger
         return( 
             
 <Container>

@@ -15,6 +15,8 @@ export default class Home extends Component {
 //     }
 //   }
     render(){ 
+      
+      
       let games = this.props.testGames
       let num1 = Math.floor(Math.random() * games.length)
       let num2 = Math.floor(Math.random() * games.length)
@@ -22,7 +24,6 @@ export default class Home extends Component {
       let link1 = `/games/${this.props.testGames[num1].id}`
       let link2 = `/games/${this.props.testGames[num2].id}`
       let link3 = `/games/${this.props.testGames[num3].id}`
-debugger
     return(
         <div>
 <Carousel>

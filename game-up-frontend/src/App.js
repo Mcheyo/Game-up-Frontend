@@ -27,8 +27,37 @@ class App extends Component {
     fetch('http://localhost:3000/games')
     .then( res => res.json())
     .then(games => this.setState({gamesArray: games, loading: false}))
+    
+    if(localStorage.getItem("jwt")){
+      fetch('http://localhost:3000/login', {
+        method: "GET",
+        headers: {
+          "Authentication" : localStorage.getItem("jwt"),
+          "Accept" : "application/json"
+        }
+      })
+      .then(res => res.json())
+      .then(data =>  this.setState({user: data}) )
+    }
+    
+   
   }
-
+getUser = () => { 
+  if(localStorage.getItem("jwt")){
+    fetch('http://localhost:3000/api/v1/profile', {
+      method: "GET",
+      headers: {
+        "Authentication" : localStorage.getItem("jwt"),
+        "Accept" : "application/json"
+      }
+    }).then(res => res.json())
+    .then(data => {
+      this.setState({currentUser: data, loading: false})
+    })
+  }else{
+    this.setState({loading: false})
+  }
+}
   displayGame = (game) => {
     this.setState({displayedGame: game})
   }
@@ -53,6 +82,8 @@ class App extends Component {
   }
 
 handleLogout = () => { 
+  localStorage.removeItem("jwt")
+
   this.setState({user: null })
 }
 
