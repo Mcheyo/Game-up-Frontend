@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-export default class GameSpecs extends Component { 
+export default class Games extends Component { 
     render(){ 
-        const {name, background_image, rating} = this.props.game
+        const {name, background_image} = this.props.game
         return(
             <div className="col-lg-4 py-2">
             <Link to={`/games/${this.props.game.id}`}>

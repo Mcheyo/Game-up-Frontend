@@ -52,8 +52,7 @@ componentDidMount(){
         fetch('http://localhost:3000/users/'+ id)
          .then(res => res.json())
          .then( user => this.props.handleUpdatedLikes(user))
-        }
-        
+        }   
       }
 
     render(){  

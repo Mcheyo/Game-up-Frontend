@@ -23,7 +23,6 @@ class App extends Component {
   }
 
   componentDidMount(){ 
-    
     fetch('http://localhost:3000/games')
     .then( res => res.json())
     .then(games => this.setState({gamesArray: games, loading: false}))
