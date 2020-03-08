@@ -10,6 +10,7 @@ import Home from './components/Home'
 import Footer from './components/Footer'
 import Login from './components/Login'
 import Profile from './components/Profile'
+
 class App extends Component {
   state ={
     gamesArray: [],

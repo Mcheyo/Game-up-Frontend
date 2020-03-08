@@ -4,6 +4,7 @@ import Game from './Games'
 
 class Profile extends Component {
     render(){ 
+        let location =  "profile"
         return(             
             <Container>
                 <Row>         
@@ -14,7 +15,7 @@ class Profile extends Component {
                                     <p> Games I Like:</p>
                                     {
                                     this.props.myGames.length < 1 ? 'GO like some Games!' :
-                                    this.props.myGames.map(game => <Game key={game.name}  game={game} />)
+                                    this.props.myGames.map(game => <Game location="profile" key={game.name}  game={game} />)
                                     }
                             </div>
                         </div>  
