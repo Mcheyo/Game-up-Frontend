@@ -42,22 +42,21 @@ class App extends Component {
     
    
   }
-getUser = () => { 
-  if(localStorage.getItem("jwt")){
-    fetch('http://localhost:3000/api/v1/profile', {
-      method: "GET",
-      headers: {
-        "Authentication" : localStorage.getItem("jwt"),
-        "Accept" : "application/json"
-      }
-    }).then(res => res.json())
-    .then(data => {
-      this.setState({currentUser: data, loading: false})
+
+componentDidUpdate(){ 
+  
+  if(this.state.user !== null){ 
+    let id = this.state.user.id
+    fetch("http://localhost:3000/users/" + id)
+    .then(res => res.json() )
+   .then( data => {
+     if(this.state.myGames.length !== data.games.length){ 
+       this.setState({myGames: data.games })
+     }
     })
-  }else{
-    this.setState({loading: false})
   }
 }
+
   displayGame = (game) => {
     this.setState({displayedGame: game})
   }
@@ -88,9 +87,15 @@ handleLogout = () => {
 }
 
 handleUpdatedLikes = user => { 
-  if(this.state.myGames.length !== user.games.length){ 
-    this.setState({myGames: user.games })
-  }
+  
+  let id = user.id
+    fetch("http://localhost:3000/users/" + id)
+    .then(res => res.json() )
+   .then( data => {
+     if(this.state.myGames.length !== data.games.length){ 
+       this.setState({myGames: data.games })
+     }
+    })
 }
 
 
