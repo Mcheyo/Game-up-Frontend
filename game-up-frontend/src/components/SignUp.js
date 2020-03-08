@@ -66,7 +66,7 @@ addUsertoDatabase = (e) => {
                     <h3 className="mb-3 pt-3 font-weight-bold">Create Your Account</h3>
                 </div> */}
                 <Card.Body>
-                <Card.Title>Create Your Account</Card.Title>
+                <Card.Title as="h3"className="text-center">Create Your Account</Card.Title>
                     <Form>
                         <Form.Group controlId="Username">
                         <Form.Label>Username</Form.Label>

@@ -66,9 +66,11 @@ componentDidMount(){
                             <img className="img-responsive fit-image" src={`${this.props.game.background_image}`}/>
                     
                     </div>
-                    <div className="container">
+
+                    <div className="container game-specs">
                     <div className="row">
-                        <div className="col-lg">
+                        <div className="col-lg ">
+                            <div className="suggested-game-card">
                             {this.props.game.clip? 
                             <div className="embed-responsive embed-responsive-21by9">
                                 <iframe className="embed-responsive-item" width="320" height="240" src={`${this.props.game.clip}`} frameBorder="0" allowFullScreen>
@@ -90,11 +92,12 @@ componentDidMount(){
                                         <button className="btn btn-danger" onClick={this.handleClick}>Like</button>:
                                         <button className="btn btn-light" onClick={this.handleDelete}>Dislike</button> ) : (<></>)
                                 }
+                                </div>
                             </div> 
                         </div>
 
                         <div className="col-lg">
-                            <div className="suggested-game">
+                            <div className="suggested-game-card">
                                 <h4>If you like {this.props.game.name}, you may also like:</h4>
                                 <h3>{this.props.game.suggested_name}</h3>
                                 <p>{this.props.game.suggested_description}</p>

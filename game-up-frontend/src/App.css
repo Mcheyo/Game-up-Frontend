@@ -43,7 +43,7 @@ html{
   }
 }
 
-.form-group {
+.form-group{
   margin: 50px;
   opacity: 0.75;
 }
@@ -74,13 +74,8 @@ html{
 }
 
 .user-reviews{
-  color: white;
   font-size: 150%;
   text-align: center;
-}
-
-.suggested-game{
-  color: white;
 }
 
 /* .background-container{
@@ -91,6 +86,13 @@ html{
   background: url(./background2.jpg) no-repeat center/cover fixed;
 } */
 
-form{
- 
+.game-specs{
+ padding: 1%;
+}
+
+.suggested-game-card {
+  color: white;
+  margin: 2%;
+  padding: 2%;
+  background-color: rgba(159, 159, 159, 0.6);
 }
