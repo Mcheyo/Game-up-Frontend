@@ -32,7 +32,6 @@ class LoginForm extends Component{
         })
         .then(res => res.json())
         .then(user => {
-            debugger
             if(user.message){ 
                 alert(user.message)
             }

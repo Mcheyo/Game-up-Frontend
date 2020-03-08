@@ -1,11 +1,11 @@
-.card-columns {
+/* .card-columns {
   @include media-breakpoint-only(lg) {
     column-count: 4;
   }
   @include media-breakpoint-only(xl) {
     column-count: 5;
   }
-}
+} */
 
 .card-img-top {
   min-height:250px;
@@ -25,10 +25,16 @@
   width: 100%;
   object-fit: scale-down;
 }
+
 body {
   padding-top: 75px;
   padding-bottom: 55px;
-  background-color: #6FC7A8;
+  height: 100%;
+  background: url(./background2.jpg) no-repeat center/cover fixed;
+}
+
+html{
+  height: 100vh;
 }
 
 @media (max-width: 979px) {
@@ -71,3 +77,11 @@ body {
 .suggested-game{
   color: white;
 }
+
+/* .background-container{
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  background: url(./background2.jpg) no-repeat center/cover fixed;
+} */
