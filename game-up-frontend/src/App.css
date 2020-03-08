@@ -34,7 +34,7 @@ body {
 }
 
 html{
-  height: 100vh;
+  height: 95vh;
 }
 
 @media (max-width: 979px) {
@@ -68,13 +68,17 @@ html{
 }
 
 .game-title{
+  padding-top: 1%;
   text-align: center;
   color: white;
   font-size: 300%;
+  font-family: 'Alegreya SC', serif;
+
 }
 
 .user-reviews{
-  font-size: 150%;
+  font-family: 'Alegreya SC', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 160%;
   text-align: center;
 }
 
@@ -91,8 +95,10 @@ html{
 }
 
 .suggested-game-card {
+  font-family: Georgia, 'Times New Roman', Times, serif;
   color: white;
   margin: 2%;
   padding: 2%;
   background-color: rgba(159, 159, 159, 0.6);
 }
+
