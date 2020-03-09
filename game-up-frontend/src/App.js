@@ -42,7 +42,9 @@ class App extends Component {
   }
 
   componentDidUpdate(){ 
+
     if(this.state.user !== null){ 
+      debugger
       let id = this.state.user.id
       fetch("http://localhost:3000/users/" + id)
       .then(res => res.json() )
