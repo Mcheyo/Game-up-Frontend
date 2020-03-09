@@ -62,51 +62,48 @@ addUsertoDatabase = (e) => {
             <div>
                 <div className="form-group">
                 <Card className="form-card">
-                {/* <div className="row d-flex justify-content-center">
-                    <h3 className="mb-3 pt-3 font-weight-bold">Create Your Account</h3>
-                </div> */}
-                <Card.Body>
-                <Card.Title as="h3"className="text-center">Create Your Account</Card.Title>
-                    <Form>
-                        <Form.Group controlId="Username">
-                        <Form.Label>Username</Form.Label>
-                        <input 
-                            className="form-control"
-                            type="text"
-                            placeholder="UserName..."
-                            value={this.state.name}
-                            id="name"
-                            onChange={(event) =>this.handleChange(event)}
-                        />
-                        <Form.Label>Password</Form.Label>
-                         <input 
-                            className="form-control"
-                            type="password"
-                            placeholder="Password"
-                            value={this.state.password}
-                            id="password"
-                            onChange={(event) =>this.handleChange(event)}
-                        />
-                        <Form.Label>Profile</Form.Label>
-                        <textarea
-                            className="form-control"
-                            type="text"
-                            placeholder="Profile"
-                            id="profile"
-                            value={this.state.profile}
-                            onChange={this.handleChange}
-                        />
-                        </Form.Group>
-                        
-                        <Form.Group>
-                            <Button variant="primary" size="lg" block
-                                type="submit"
-                                onClick={(event) => this.addUser(event)}>
-                                    Submit
-                            </Button>
-                        </Form.Group>
-                    </Form>
-                    </Card.Body>
+                    <Card.Body>
+                    <Card.Title as="h3"className="text-center">Create Your Account</Card.Title>
+                        <Form>
+                            <Form.Group controlId="Username">
+                            <Form.Label>Username</Form.Label>
+                            <input 
+                                className="form-control"
+                                type="text"
+                                placeholder="UserName..."
+                                value={this.state.name}
+                                id="name"
+                                onChange={(event) =>this.handleChange(event)}
+                            />
+                            <Form.Label>Password</Form.Label>
+                            <input 
+                                className="form-control"
+                                type="password"
+                                placeholder="Password"
+                                value={this.state.password}
+                                id="password"
+                                onChange={(event) =>this.handleChange(event)}
+                            />
+                            <Form.Label>Profile</Form.Label>
+                            <textarea
+                                className="form-control"
+                                type="text"
+                                placeholder="Profile"
+                                id="profile"
+                                value={this.state.profile}
+                                onChange={this.handleChange}
+                            />
+                            </Form.Group>
+                            
+                            <Form.Group>
+                                <Button variant="primary" size="lg" block
+                                    type="submit"
+                                    onClick={(event) => this.addUser(event)}>
+                                        Submit
+                                </Button>
+                            </Form.Group>
+                        </Form>
+                        </Card.Body>
                     </Card>
                 </div>
             </div>
