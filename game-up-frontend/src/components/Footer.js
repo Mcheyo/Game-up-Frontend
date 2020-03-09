@@ -1,7 +1,5 @@
 import React from 'react'
-import NavbarBrand from 'react-bootstrap/NavbarBrand'
 import Navbar from 'react-bootstrap/Navbar'
-import Container from 'react-bootstrap/Container'
 import { FaLinkedin, FaGithub } from "react-icons/fa"
 
 

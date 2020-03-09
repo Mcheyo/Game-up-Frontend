@@ -39,23 +39,20 @@ class App extends Component {
       .then(res => res.json())
       .then(data =>  this.setState({user: data}) )
     }
-    
-   
   }
 
-componentDidUpdate(){ 
-  
-  if(this.state.user !== null){ 
-    let id = this.state.user.id
-    fetch("http://localhost:3000/users/" + id)
-    .then(res => res.json() )
-   .then( data => {
-     if(this.state.myGames.length !== data.games.length){ 
-       this.setState({myGames: data.games })
-     }
-    })
+  componentDidUpdate(){ 
+    if(this.state.user !== null){ 
+      let id = this.state.user.id
+      fetch("http://localhost:3000/users/" + id)
+      .then(res => res.json() )
+    .then( data => {
+      if(this.state.myGames.length !== data.games.length){ 
+        this.setState({myGames: data.games })
+      }
+      })
+    }
   }
-}
 
   displayGame = (game) => {
     this.setState({displayedGame: game})
@@ -71,32 +68,28 @@ componentDidUpdate(){
   }
 
   handleUser = user => { 
-    
     this.setState({user: user })
     let id = this.state.user.id
-  fetch("http://localhost:3000/users/" + id)
-  .then(res => res.json())
-  .then(user => this.setState({myGames: user.games }))
-  
+    fetch("http://localhost:3000/users/" + id)
+      .then(res => res.json())
+      .then(user => this.setState({myGames: user.games }))
   }
 
 handleLogout = () => { 
   localStorage.removeItem("jwt")
-
   this.setState({user: null })
 }
 
-handleUpdatedLikes = user => { 
-  
-  let id = user.id
+  handleUpdatedLikes = user => { 
+    let id = user.id
     fetch("http://localhost:3000/users/" + id)
-    .then(res => res.json() )
-   .then( data => {
-     if(this.state.myGames.length !== data.games.length){ 
-       this.setState({myGames: data.games })
-     }
+      .then(res => res.json() )
+      .then( data => {
+      if(this.state.myGames.length !== data.games.length){ 
+        this.setState({myGames: data.games })
+      }
     })
-}
+  }
 
 
   render() {

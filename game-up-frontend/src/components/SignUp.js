@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {Link, Redirect} from 'react-router-dom'
 import { Button, Form, Card} from "react-bootstrap"
-import { CardBody } from 'react-bootstrap/Card'
 export default class SignUp extends Component { 
     state={ 
         name: '', 

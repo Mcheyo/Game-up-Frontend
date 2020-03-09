@@ -9,10 +9,12 @@ export default class GameSpecs extends Component {
             liked: false
         }
     }
-componentDidMount(){ 
-    let x = this.props.myGames.find(game => game.name === this.props.game.name) ? true : false
-  this.setState({liked: x })
-}
+
+    componentDidMount(){ 
+        let likeStatus = this.props.myGames.find(game => game.name === this.props.game.name) ? true : false
+        this.setState({liked: likeStatus })
+    }
+
     handleClick = () => {
         let gameId = this.props.game.id
         let userId = this.props.user.id
@@ -34,7 +36,6 @@ componentDidMount(){
     handleDelete = () => { 
         let gameId = this.props.game.id
         let userId = this.props.user.id
-        let userLike = !this.state.liked
         this.setState({liked: false })
         fetch('http://localhost:3000/destroy', { 
             method: "POST", 
@@ -42,10 +43,9 @@ componentDidMount(){
                       "application/json",
                       Accept:"application/json"}, 
             body: JSON.stringify({game_id: gameId, user_id: userId})
-
-        })
-        
+        }) 
     }
+
     componentDidUpdate(){ 
         if(this.props.user !== null) {    
         let id = this.props.user.id 
@@ -81,8 +81,6 @@ componentDidMount(){
 
                             <div className="user-reviews">
                                 {/* <div className="userReviews">User Reviews{}</div> */}
-                                
-
                                 <div className="game-ratings">Rating: {this.props.game.rating} </div>
                                 <div className="game-released">Released: {this.props.game.released}</div>
                                 <div className="game-playtime">Playtime: {this.props.game.playtime}</div>
